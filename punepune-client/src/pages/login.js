@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import AppIcon from '../images/logo.png'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 //MaterialUI stuff
@@ -14,35 +13,11 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 //REDUX stuff
 import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/userActions';
+import { loginUser } from '../redux/actions/userActions'
 
-const styles = {
-    form: {
-        textAlign: 'center'
-    },
-    image: {
-        margin: '20px auto 20px auto'
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
-    textField: {
-        margin: '10px auto 10px auto'
-    },
-    button: {
-        marginTop: 20,
-        position: 'relative'
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-    },
-    progress: {
-        position: 'absolute'
-    }
-}
-
+const styles = (theme) => ({
+    ...theme.spreadTheme
+})
 class login extends Component {
     constructor() {
         super();
@@ -54,19 +29,18 @@ class login extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.UI.errors) {
-            this.setState({errors: nextProps.UI.errors})
+        if (nextProps.UI.errors) {
+            this.setState({ errors: nextProps.UI.errors })
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-
         const userData = {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.loginUser(userData, this.props.history);
+        this.props.loginUser(userData, this.props.history)
     }
 
     handleChange = (event) => {
@@ -124,9 +98,8 @@ class login extends Component {
                             disabled={loading}
                         >
                             Login
-              {loading && (
-                                <CircularProgress size={30} className={classes.progress} />
-                            )}
+              {loading && <CircularProgress size={30} className={classes.progress} />
+                            }
                         </Button>
                         <br />
                         <small>
@@ -142,7 +115,7 @@ class login extends Component {
 
 login.propTypes = {
     classes: PropTypes.object.isRequired,
-    loginUser: PropTypes.func.isRequired,
+    loginUser: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired
 }
@@ -150,10 +123,6 @@ login.propTypes = {
 const mapStateToProps = (state) => ({
     user: state.user,
     UI: state.UI
-});
+})
 
-const mapActionsToProps = {
-    loginUser
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(login));
+export default connect(mapStateToProps, { loginUser })(withStyles(styles)(login));

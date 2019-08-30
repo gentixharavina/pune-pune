@@ -1,37 +1,45 @@
 export default {
     palette: {
         primary: {
-            main: '#607d8b'
+            light: '#33c8dc',
+            main: '#0097A7',
+            dark: '#008394',
+            contrastText: '#fff'
         },
         secondary: {
-            main: '#00838f'
+            light: '#CD5C5C',
+            main: '#DC143C',
+            dark: '#c82848',
+            contrastText: '#fff'
         }
     },
-    typography: {
-        useNextVariants: true
-    },
-    form: {
-        textAlign: 'center'
-    },
-    image: {
-        margin: '20px auto 20px auto'
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
-    textField: {
-        margin: '10px auto 10px auto'
-    },
-    button: {
-        marginTop: 20,
-        position: 'relative'
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-    },
-    progress: {
-        position: 'absolute'
+    spreadTheme: {
+        typography: {
+            useNextVariants: true
+        },
+        form: {
+            textAlign: 'center'
+        },
+        image: {
+            margin: '20px auto 20px auto'
+        },
+        pageTitle: {
+            margin: '10px auto 10px auto'
+        },
+        textField: {
+            margin: '10px auto 10px auto'
+        },
+        button: {
+            marginTop: 20,
+            position: 'relative'
+        },
+        customError: {
+            color: 'red',
+            fontSize: '0.8rem',
+            marginTop: 10
+        },
+        progress: {
+            position: 'absolute'
+        }
     }
 }
