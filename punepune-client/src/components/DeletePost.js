@@ -33,7 +33,7 @@ export class DeletePost extends Component {
     }
     deletePost = () => {
         this.props.deletePost(this.props.postId)
-        this.setState({open: true})
+        this.setState({open: false})
     }
     render() {
         const { classes } = this.props;
