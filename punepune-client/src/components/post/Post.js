@@ -15,7 +15,7 @@ import PostDialog from './PostDialog'
 import { connect } from 'react-redux'
 //icons
 import ChatIcon from '@material-ui/icons/Chat'
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 import DeletePost from './DeletePost'
 import LikeButton from './LikeButton';
 
